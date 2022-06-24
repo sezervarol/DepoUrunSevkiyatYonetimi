@@ -1,0 +1,462 @@
+﻿@using VarBal.AdminModel;
+@model IndexModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+    //var image = string.IsNullOrEmpty(Model.) ? "default-user.png" : Model.Image;
+    int i = 0;
+}
+
+
+
+<div class="content-page">
+    <div class="content">
+        <!-- Start Content-->
+        <div class="container-fluid">
+
+            <div class="row">
+
+                <div class="col-xl-4 col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="dropdown float-end">
+                                <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="mdi mdi-dots-vertical"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Action</a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Another action</a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Something else</a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
+                                </div>
+                            </div>
+
+                            <h4 class="header-title mt-0 mb-4">Registered USer</h4>
+
+                            <div class="widget-chart-1">
+                                <div class="widget-chart-box-1 float-start" dir="ltr">
+                                    <input data-plugin="knob" data-width="70" data-height="70" data-fgColor="#00ff00 "
+                                           @{var percent = (Model.UserActiveCount / Model.UserTotalCount) * 100;}
+                                           data-bgColor="#f05050" value="@(Math.Ceiling(Convert.ToDouble(100/Model.UserTotalCount*Model.UserActiveCount)))"
+                                           data-skin="tron" data-angleOffset="180" data-readOnly=true
+                                           data-thickness=".15" />
+                                </div>
+
+                                <div class="widget-detail-1 text-end">
+                                    <h2 class="fw-normal pt-2 mb-1"> @Model.UserTotalCount </h2>
+                                    <p class="text-muted mb-1">Total User</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- end col -->
+                <div class="col-xl-4 col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="dropdown float-end">
+                                <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="mdi mdi-dots-vertical"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Action</a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Another action</a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Something else</a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
+                                </div>
+                            </div>
+
+                            <h4 class="header-title mt-0 mb-3">Product Count</h4>
+                            <div class="widget-box-2">
+                                <div class="widget-detail-2 text-end">
+                                    <span class="badge bg-success rounded-pill float-start mt-3"> @(Math.Ceiling(Convert.ToDouble(100/Model.ProductCount*Model.ProductCountTrue))) <i class="mdi mdi-trending-up"></i> </span>
+                                    <h2 class="fw-normal mb-1"> @Model.ProductCount </h2>
+                                    <p class="text-muted mb-3">Revanue Today</p>
+                                </div>
+                                <div class="progress progress-bar-alt-success progress-sm">
+                                    <div class="progress-bar bg-success" role="progressbar"
+                                         aria-valuenow="@(Math.Ceiling(Convert.ToDouble(100/Model.ProductCount*Model.ProductCountTrue)))" aria-valuemin="0" aria-valuemax="100"
+                                         style="width: @(Math.Ceiling(Convert.ToDouble(100/Model.ProductCount*Model.ProductCountTrue)))%;">
+                                        <span class="visually-hidden">% @(Math.Ceiling(Convert.ToDouble(100/Model.ProductCount*Model.ProductCountTrue))) - Active Product</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- end col -->
+
+                <div class="col-xl-4 col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="dropdown float-end">
+                                <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="mdi mdi-dots-vertical"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Action</a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Another action</a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Something else</a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
+                                </div>
+                            </div>
+
+                            <h4 class="header-title mt-0 mb-4">Vehicles</h4>
+
+                            <div class="widget-chart-1">
+                                <div class="widget-chart-box-1 float-start" dir="ltr">
+                                    <input data-plugin="knob" data-width="70" data-height="70" data-fgColor="#ffbd4a"
+                                           data-bgColor="#FFE6BA" value="@(Math.Round(Convert.ToDouble(100/Model.VehiclesCount*Model.VehiclesCountTrue)))"
+                                           data-skin="tron" data-angleOffset="180" data-readOnly=true
+                                           data-thickness=".15" />
+                                </div>
+                                <div class="widget-detail-1 text-end">
+                                    <h2 class="fw-normal pt-2 mb-1"> @Model.VehiclesCount </h2>
+                                    <p class="text-muted mb-1">Revenue today</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- end col -->
+
+                <!--<div class="col-xl-3 col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="dropdown float-end">
+                                <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="mdi mdi-dots-vertical"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end">-->
+                                    <!-- item-->
+                                    <!--<a href="javascript:void(0);" class="dropdown-item">Action</a>-->
+                                    <!-- item-->
+                                    <!--<a href="javascript:void(0);" class="dropdown-item">Another action</a>-->
+                                    <!-- item-->
+                                    <!--<a href="javascript:void(0);" class="dropdown-item">Something else</a>-->
+                                    <!-- item-->
+                                    <!--<a href="javascript:void(0);" class="dropdown-item">Separated link</a>
+                                </div>
+                            </div>
+
+                            <h4 class="header-title mt-0 mb-3">Daily Sales</h4>
+
+                            <div class="widget-box-2">
+                                <div class="widget-detail-2 text-end">
+                                    <span class="badge bg-pink rounded-pill float-start mt-3">32% <i class="mdi mdi-trending-up"></i> </span>
+                                    <h2 class="fw-normal mb-1"> 158 </h2>
+                                    <p class="text-muted mb-3">Revenue today</p>
+                                </div>
+                                <div class="progress progress-bar-alt-pink progress-sm">
+                                    <div class="progress-bar bg-pink" role="progressbar"
+                                         aria-valuenow="77" aria-valuemin="0" aria-valuemax="100"
+                                         style="width: 77%;">
+                                        <span class="visually-hidden">77% Complete</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>--><!-- end col -->
+
+            </div>
+            <!-- end row -->
+
+            <div class="row">
+                <div class="col-xl-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="dropdown float-end">
+                                <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="mdi mdi-dots-vertical"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Action</a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Another action</a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Something else</a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
+                                </div>
+                            </div>
+
+                            <h4 class="header-title mt-0">Daily Sales</h4>
+
+                            <div class="widget-chart text-center">
+                                <div id="morris-donut-example" dir="ltr" style="height: 245px;" class="morris-chart"></div>
+                                <ul class="list-inline chart-detail-list mb-0">
+                                    <li class="list-inline-item">
+                                        <h5 style="color: #ff8acc;"><i class="fa fa-circle me-1"></i>Series A</h5>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <h5 style="color: #5b69bc;"><i class="fa fa-circle me-1"></i>Series B</h5>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- end col -->
+
+                <div class="col-xl-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="dropdown float-end">
+                                <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="mdi mdi-dots-vertical"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Action</a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Another action</a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Something else</a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
+                                </div>
+                            </div>
+                            <h4 class="header-title mt-0">Statistics</h4>
+                            <div id="morris-bar-example" dir="ltr" style="height: 280px;" class="morris-chart"></div>
+                        </div>
+                    </div>
+                </div><!-- end col -->
+
+                <div class="col-xl-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="dropdown float-end">
+                                <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="mdi mdi-dots-vertical"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Action</a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Another action</a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Something else</a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
+                                </div>
+                            </div>
+                            <h4 class="header-title mt-0">Total Revenue</h4>
+                            <div id="morris-line-example" dir="ltr" style="height: 280px;" class="morris-chart"></div>
+                        </div>
+                    </div>
+                </div><!-- end col -->
+            </div>
+            <!-- end row -->
+
+
+            <div class="row">
+
+                @foreach (var item in Model.User)
+                {
+                    var image = string.IsNullOrEmpty(item.Image) ? "default-user.png" : item.Image;
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card">
+                            <div class="card-body widget-user">
+                                <div class="d-flex align-items-center">
+                                    <div class="flex-shrink-0 avatar-lg me-3">
+                                        <img src="~/Content/images/UserImage/@image" class="img-fluid rounded-circle" alt="user">
+                                    </div>
+                                    <div class="flex-grow-1 overflow-hidden">
+                                        <h5 class="mt-0 mb-1"> @item.Name </h5>
+                                        <p class="text-muted mb-2 font-13 text-truncate">  @item.Email </p>
+                                        <small class="text-warning"><b>@item.Permission.Name</b></small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- end col -->
+
+                    <!--<div class="col-xl-3 col-md-6">
+                        <div class="card">
+                            <div class="card-body widget-user">
+                                <div class="d-flex align-items-center">
+                                    <div class="flex-shrink-0 avatar-lg me-3">
+                                        <img src="~/Content/Panel/assets/images/users/user-2.jpg" class="img-fluid rounded-circle" alt="user">
+                                    </div>
+                                    <div class="flex-grow-1 overflow-hidden">
+                                        <h5 class="mt-0 mb-1"> Michael Zenaty</h5>
+                                        <p class="text-muted mb-2 font-13 text-truncate">coderthemes@gmail.com</p>
+                                        <small class="text-pink"><b>Support Lead</b></small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>-->
+                    <!-- end col -->
+
+                    <!--<div class="col-xl-3 col-md-6">
+                        <div class="card">
+                            <div class="card-body widget-user">
+                                <div class="d-flex align-items-center">
+                                    <div class="flex-shrink-0 avatar-lg me-3">
+                                        <img src="~/Content/Panel/assets/images/users/user-1.jpg" class="img-fluid rounded-circle" alt="user">
+                                    </div>
+                                    <div class="flex-grow-1 overflow-hidden">
+                                        <h5 class="mt-0 mb-1">Sezer Varol</h5>
+                                        <p class="text-muted mb-2 font-13 text-truncate">sv@gmail.com</p>
+                                        <small class="text-success"><b>Designer</b></small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>-->
+                    <!-- end col -->
+
+                    <!--<div class="col-xl-3 col-md-6">
+                        <div class="card">
+                            <div class="card-body widget-user">
+                                <div class="d-flex align-items-center">
+                                    <div class="flex-shrink-0 avatar-lg me-3">
+                                        <img src="~/Content/Panel/assets/images/users/user-10.jpg" class="img-fluid rounded-circle" alt="user">
+                                    </div>
+                                    <div class="flex-grow-1 overflow-hidden">
+                                        <h5 class="mt-0 mb-1">Tomaslau</h5>
+                                        <p class="text-muted mb-2 font-13 text-truncate">coderthemes@gmail.com</p>
+                                        <small class="text-info"><b>Developer</b></small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>-->
+
+                }
+                <!-- end col -->
+
+            </div>
+            <!-- end row -->
+
+
+            <div class="row">
+
+                <div class="col-xl-4">
+
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="dropdown float-end">
+                                <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="mdi mdi-dots-vertical"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                    <!-- item-->
+                                    <a href="~/Contact/Index" class="dropdown-item">Go to Home Page</a>
+                                    <!-- item-->
+                                    <a href="~/Home/Contact" class="dropdown-item">Send Mail</a>
+                                    <!-- item-->
+                                    <a href="~/Home/Booking" class="dropdown-item">Go To Booking</a>
+                                    <!-- item-->
+                                    <a href="#" class="dropdown-item">Separated link</a>
+                                </div>
+                            </div>
+
+                            <h4 class="header-title mb-3">Inbox</h4>
+
+                            <div class="inbox-widget">
+                                @foreach (var item in Model.ContactUs)
+                                {
+                                    <div class="inbox-item">
+                                        <a href="#">
+                                            <div class="inbox-item-img"><img src="~/Content/images/UserImage/default-user.png" class="rounded-circle" alt=""></div>
+                                            <h5 class="inbox-item-author mt-0 mb-1">@item.NameSurname</h5>
+                                            <p class="inbox-item-text">@item.Message</p>
+                                            <p class="inbox-item-date">@item.Email</p>
+                                        </a>
+                                    </div>
+                                }
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- end col -->
+
+                <div class="col-xl-8">
+
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="dropdown float-end">
+                                <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="mdi mdi-dots-vertical"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                    <!-- item-->
+                                    <a href="#" class="dropdown-item">Action</a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Another action</a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Something else</a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
+                                </div>
+                            </div>
+
+                            <h4 class="header-title mt-0 mb-3">Latest Projects</h4>
+
+                            <div class="table-responsive">
+                                <table class="table table-hover mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Product Name</th>
+                                            <th>Sender Storage</th>
+                                            <th>Receiver Storage</th>
+                                            <th>Process</th>
+                                            <th>Sender Date</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model.Shipment)
+                                        {
+                                            i++;
+                                            <tr>
+                                                <td>@i</td>
+                                                <td>@item.Product.Name</td>
+                                                <td>@item.Sender.Name</td>
+                                                <td>@item.Receiver.Name</td>
+                                                <td><span class="badge bg-danger">@item.Process</span></td>
+                                                <td>@item.SendTime</td>
+                                            </tr>
+
+                                        }
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- end col -->
+
+            </div>
+            <!-- end row -->
+
+        </div> <!-- container-fluid -->
+
+    </div> <!-- content -->
+
+
+</div>
+
